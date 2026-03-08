@@ -759,19 +759,6 @@ export default function App() {
         return;
       }
 
-      // ─ التحقق من مفتاح API ─
-      if (!config.apiKey) {
-        setShowSettings(true);
-        const sys: Message = {
-          id: genId(),
-          role: "system",
-          content: "🔑 يرجى إضافة مفتاح NVIDIA API في الإعدادات للمتابعة",
-          timestamp: new Date(),
-        };
-        setMessages((prev) => [...prev, sys]);
-        return;
-      }
-
       // ─ إرسال للـ API ─
       setIsThinking(true);
 
@@ -798,7 +785,6 @@ export default function App() {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
-            Authorization: `Bearer ${config.apiKey}`,
           },
           body: JSON.stringify({
             model: config.model,
@@ -976,7 +962,7 @@ export default function App() {
 
   const currentModel = MODELS.find((m) => m.id === config.model);
   const showQuickMessages = messages.length <= 2 && !isThinking;
-  const hasApiKey = config.apiKey.length > 0;
+  const hasApiKey = true;
 
   // ══════════════════════════════════════════════════════
   //  العرض
