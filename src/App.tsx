@@ -39,7 +39,7 @@ interface AppConfig {
 //  الثوابت
 // ══════════════════════════════════════════════════════════
 
-const API_URL = "https://integrate.api.nvidia.com/v1/chat/completions";
+const API_URL = "/api/chat";
 
 const MODELS = [
   {
